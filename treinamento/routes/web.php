@@ -25,15 +25,19 @@ Route::get('/home', function () {
 Route::get('/funcionario/home', function () {
     return view('employee.home');
 });
+
 Route::get('/funcionario/informacao', function () {
     return view('employee.employee');
 });
+
 Route::get('/funcionario/progresso', function () {
     return view('employee.progress');
 });
+
 Route::get('/funcionario/treinamento', function () {
     return view('employee.training');
 });
+
 Route::get('/funcionario/teste', function () {
     return view('employee.test');
 });
