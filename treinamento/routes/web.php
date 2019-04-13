@@ -11,7 +11,8 @@ Route::get('/login', function(){
     return view('auth.login');
 })->name('login');
 
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+//Logout de administração
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Registro
 Route::get('/register', function(){
