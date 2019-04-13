@@ -13,6 +13,6 @@
     </head>
     <body id="body">
         @yield('body')
-        <script src="{{ asset('js/app.css') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

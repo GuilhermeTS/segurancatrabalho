@@ -13,7 +13,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    @yield('menu')
+    {{ $slot }}
   </div>
 </nav>
 </center>
