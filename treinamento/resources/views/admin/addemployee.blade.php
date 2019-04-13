@@ -24,6 +24,9 @@
     <td>Nome1</td>
     <td>Sobrenome1</td>
     <td>Andamento</td>
+    <td><button type="button" class="funci btn btn-outline-success btn-sm" data-toggle="modal" data-target="#visualization">Visualizar</button></td>
+    <td><button type="button" class="funci btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#change">Alterar</button></td>
+    <td><button type="button" class="funci btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete">Excluir</button></td>
   @endcomponent
 
 
