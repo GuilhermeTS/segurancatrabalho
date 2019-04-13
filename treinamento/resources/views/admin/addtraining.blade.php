@@ -6,6 +6,7 @@
 
 @section('css')
   <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('title')
@@ -103,6 +104,7 @@
     @endsection
     @section('modalchange')
     <form action="#" method="POST">
+    @csrf
     <div class="form-group">
       <label for="name">Nome</label>
       <input type="text" class="form-control" id="name" name="nome">
@@ -165,6 +167,7 @@
     </form>
     @endsection
     <form method="POST" action="">
+    @csrf
         <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content" style="margin-top: 200px;">
