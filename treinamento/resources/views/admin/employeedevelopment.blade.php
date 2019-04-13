@@ -11,10 +11,6 @@
 
     @component('admin.administrator.administratormenu') @endcomponent
 
-    <div class="text-center">
-        <button type="button" class="cadast btn btn-outline-success btn-lg" data-toggle="modal" data-target="#register">Cadastrar</button>
-    </div>
-
     @component('admin.administrator.table')
         @slot('head')
             <th scope="col">Nome</th>
