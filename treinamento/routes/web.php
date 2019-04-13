@@ -8,6 +8,15 @@ Route::get('/', function () {
 //Login
 Route::post('/login', 'Auth\LoginController@login');
 
+Route::get('/login', function(){
+    return view('auth.login');
+})->name('login');
+
+//Registro
+Route::get('/register', function(){
+    return view('auth.register');
+})->name('register');
+
 //Painel de adminstração
 Route::get('/painel', 'Administrator@home');
 Route::get('/painel/funcionario', 'Administrator@addFuncionario');
