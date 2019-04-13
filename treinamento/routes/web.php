@@ -1,9 +1,8 @@
 <?php
-
 //Rota raiz
 Route::get('/', function () {
     return view('auth.login');
-});
+})->middleware('guest');
 
 //Login
 Route::post('/login', 'Auth\LoginController@login');
@@ -20,7 +19,6 @@ Route::get('/register', function(){
 })->name('register');
 
 Route::post('/register', 'Auth\RegisterController@register');
-
 
 
 //Painel de adminstração
