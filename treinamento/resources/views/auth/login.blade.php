@@ -9,12 +9,13 @@
 @section('body')
 <div id="login" class="col">
     <form method="post" action="/login">
+    @csrf
             <div class="row">
                 <div class="form-login">
                     <img src="css/usuario.png" width="100" height="100"><br>
-                    <input type="text" id="nome" class="form-control input-sm chat-input" placeholder="Usuário"  required/>
+                    <input type="text" name='email' id="nome" class="form-control input-sm chat-input" placeholder="Usuário"  required/>
                     <br>
-                    <input type="password" id="senha" class="form-control input-sm chat-input" placeholder="Senha"  required/>
+                    <input type="password" name='password' id="senha" class="form-control input-sm chat-input" placeholder="Senha"  required/>
                     <br>
                     <div class="wrapper">
                         <span class="group-btn">     
