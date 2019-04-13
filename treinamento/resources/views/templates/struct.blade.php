@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="viewport" content="height=device-height, initial-scale=1">
         <meta name="viewport" content="height=device-height, user-scalable=no">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/app.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/app.css') }}">
         @yield('css')
     </head>
     <body id="body">
