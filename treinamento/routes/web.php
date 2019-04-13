@@ -1,25 +1,19 @@
 <?php
 
-
-//Painel de adminstração
+//Rota raiz
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/painel', function () {
-    return view('admin.home');
-});
-Route::get('/painel/funcionario', function () {
-    return view('admin.addemployee');
-});
-Route::get('/painel/desempenho', function () {
-    return view('admin.employeedevelopment');
-});
-Route::get('/painel/treinamento', function () {
-    return view('admin.addtraining');
-});
-Route::get('/painel/teste', function () {
-    return view('admin.addtest');
-});
+
+//Login
+Route::post('/login', 'Auth\LoginController@login');
+
+//Painel de adminstração
+Route::get('/painel', 'Administrator@home');
+Route::get('/painel/funcionario', 'Administrator@addFuncionario');
+Route::get('/painel/desempenho', 'Administrator@desempFuncionario');
+Route::get('/painel/treinamento', 'Administrator@addTreinamento');
+Route::get('/painel/teste', 'Administrator@addTeste');
 
 Route::get('/funcionario/home', function () {
     return view('employee.home');

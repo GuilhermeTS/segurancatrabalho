@@ -8,7 +8,7 @@
 
 @section('body')
 <div id="login" class="col">
-    <form method="POST" action="">
+    <form method="post" action="/login">
             <div class="row">
                 <div class="form-login">
                     <img src="css/usuario.png" width="100" height="100"><br>

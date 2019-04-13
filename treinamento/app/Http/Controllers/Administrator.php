@@ -11,8 +11,23 @@ class Administrator extends Controller
         $this->middleware('sessao');
     }
 
-    public function admPainel()
-    {
-        return view('admin.administrator.administratormenu');
+    public function painel(){
+        return view('admin.home');
+    }
+
+    public function addFuncionario(){
+        return view('admin.addemployee');
+    }
+
+    public function desempFuncionario(){
+        return view('admin.employeedevelopment');
+    }
+
+    public function addTreinamento(){
+        return view('admin.addtraining');
+    }
+    
+    public function addTeste(){
+        return view('admin.addtest');
     }
 }

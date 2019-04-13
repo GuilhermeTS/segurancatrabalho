@@ -1,19 +1,19 @@
 @extends('templates.menu')
 @section('menu')
     <li class="nav-item active">
-        <a class="nav-link text-white" href="/home">Home</a>
+        <a class="nav-link text-white" href="/painel">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="/funcionario">Cadastro de funcionário</a>
+        <a class="nav-link text-white" href="/paine/funcionario">Cadastro de funcionário</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="/desempenho_funcionario">Desempenho do funcionário</a>
+        <a class="nav-link text-white" href="/painel/desempenho">Desempenho do funcionário</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="/treinamento">Adcionar treinamentos</a>
+        <a class="nav-link text-white" href="/painel/treinamento">Adcionar treinamentos</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="/teste">Adcionar testes</a>
+        <a class="nav-link text-white" href="/painel/teste">Adcionar testes</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-white" href="#">Sair</a>
