@@ -1,7 +1,3 @@
-@extends('admin.administrator.modal')
-@extends('admin.administrator.table')
-@extends('admin.administrator.register')
-@extends('admin.administrator.administratormenu')
 @extends('templates.struct')
 
 @section('css')
@@ -9,23 +5,31 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
-@section('title')
-    Teste
-@endsection
+@section('title', 'Teste')
 
 @section('body')
-    @section('tabletitle')
-      <th scope="col">Nome</th>
-      <th scope="col">Árae</th>
-      <th scope="col">Cargo</th>
-    @endsection
 
-    @section('tablebody')
-      <td>Teste1</td>
-      <td>Área1</td>
-      <td>Cargo1</td>
-    @endsection
-    @section('modalregister')
+    @component('admin.administrator.administratormenu') @endcomponent
+
+    <div class="text-center">
+        <button type="button" class="cadast btn btn-outline-success btn-lg" data-toggle="modal" data-target="#register">Cadastrar</button>
+    </div>
+
+    @component('admin.administrator.table')
+        @slot('head')    
+            <th scope="col">Nome</th>
+            <th scope="col">Árae</th>
+            <th scope="col">Cargo</th>
+        @endslot
+            <td>Teste1</td>
+            <td>Área1</td>
+            <td>Cargo1</td>
+    @endcomponent
+
+    <!-- Cadastrar -->
+    @component('admin.administrator.modal')
+        @slot('title', 'Cadastrar')
+        @slot('type', 'register')
         <form action="#" method="POST">
                 <div class="form-group">
                         <!--Informação do teste-->
@@ -420,8 +424,12 @@
                         </div>
                     </div>
         </form>
-    @endsection
-@section('modalvisualization')
+    @endcomponent
+
+  <!-- Visualizar -->
+  @component('admin.administrator.modal')
+    @slot('title', 'Visualizar')
+    @slot('type', 'visualization')
     <div class="form-group">
         <label for="name">Nome</label>
         <input type="text" class="form-control" value="" disabled>
@@ -813,419 +821,417 @@
             <input type="text" class="form-control" value="" disabled>
         </div>
     </div>
-@endsection
-@section('modalchange')
-<form action="#" method="POST">
-<div class="form-group">
-    <label for="name">Nome</label>
-    <input type="text" class="form-control" id="aname" name="anome">
-</div>
-<div class="row">
-    <div class="col">
-        <label for="desc">Descrição</label>
-        <input type="text" class="form-control" id="adesc" name="ades">
-    </div>
-</div><br>
-<div class="row">
-    <div class="row">
-    <div class="col">
-        <label for="ques1">Questão 1</label>
-        <input type="text" class="form-control" id="aques1" name="aq1">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop1" name="ao1">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop2" name="ao2">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop3" name="ao3">
-    </div>
-</div>
-    <!--Teste questão 2-->
-<div class="row">
-    <div class="col">
-        <label for="ques2">Questão 2</label>
-        <input type="text" class="form-control" id="aques2" name="aq2">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop12" name="ao12">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop22" name="ao22">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop32" name="ao32">
-    </div>
-</div>
+@endcomponent
 
-    <!--Teste questão 3-->
-<div class="row">
-    <div class="col">
-        <label for="ques3">Questão 3</label>
-        <input type="text" class="form-control" id="aques3" name="aq3">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop13" name="ao13">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop23" name="ao23">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop33" name="ao33">
-    </div>
-</div>
-    <!--Teste questão 4-->
-<div class="row">
-    <div class="col">
-        <label for="ques4">Questão 4</label>
-        <input type="text" class="form-control" id="aques4" name="aq4">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop14" name="ao14">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop24" name="ao24">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop34" name="ao34">
-    </div>
-</div>
-    <!--Teste questão 5-->
-<div class="row">
-    <div class="col">
-        <label for="ques5">Questão 5</label>
-        <input type="text" class="form-control" id="aques5" name="aq5">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop15" name="ao15">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop25" name="ao25">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop35" name="ao35">
-    </div>
-</div>
-    <!--Teste questão 6-->
-<div class="row">
-    <div class="col">
-        <label for="ques6">Questão 6</label>
-        <input type="text" class="form-control" id="aques6" name="aq6">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop16" name="ao16">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop26" name="ao26">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop36" name="ao36">
-    </div>
-</div>
-    <!--Teste questão 7-->
-<div class="row">
-    <div class="col">
-        <label for="ques7">Questão 7</label>
-        <input type="text" class="form-control" id="aques7" name="aq7">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop17" name="ao17">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop27" name="ao27">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop37" name="ao37">
-    </div>
-</div>
-    <!--Teste questão 8-->
-<div class="row">
-    <div class="col">
-        <label for="ques8">Questão 8</label>
-        <input type="text" class="form-control" id="aques8" name="aq8">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop18" name="ao18">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop28" name="ao28">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop38" name="ao38">
-    </div>
-</div>
-    <!--Teste questão 9-->
-<div class="row">
-    <div class="col">
-        <label for="ques9">Questão 9</label>
-        <input type="text" class="form-control" id="aques9" name="aq9">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop19" name="ao19">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop29" name="ao29">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop39" name="ao39">
-    </div>
-</div>
-    <!--Teste questão 10-->
-<div class="row">
-    <div class="col">
-        <label for="ques10">Questão 10</label>
-        <input type="text" class="form-control" id="aques10" name="aq10">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop110" name="ao110">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop210" name="ao210">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop310" name="ao310">
-    </div>
-</div>
-    <!--Teste questão 11-->
-<div class="row">
-    <div class="col">
-        <label for="ques11">Questão 11</label>
-        <input type="text" class="form-control" id="aques11" name="aq11">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop111" name="ao111">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop211" name="ao211">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop311" name="ao311">
-    </div>
-</div>
-    <!--Teste questão 12-->
-<div class="row">
-    <div class="col">
-        <label for="ques12">Questão 12</label>
-        <input type="text" class="form-control" id="aques12" name="aq12">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop112" name="ao112">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop212" name="ao212">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop312" name="ao312">
-    </div>
-</div>
-    <!--Teste questão 13-->
-<div class="row">
-    <div class="col">
-        <label for="ques13">Questão 13</label>
-        <input type="text" class="form-control" id="aques13" name="aq13">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop113" name="ao113">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop213" name="ao213">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop313" name="ao313">
-    </div>
-</div>
-    <!--Teste questão 14-->
-<div class="row">
-    <div class="col">
-        <label for="ques14">Questão 14</label>
-        <input type="text" class="form-control" id="aques14" name="aq14">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop114" name="ao114">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop214" name="ao214">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop314" name="ao314">
-    </div>
-</div>
-    <!--Teste questão 15-->
-<div class="row">
-    <div class="col">
-        <label for="ques15">Questão 15</label>
-        <input type="text" class="form-control" id="aques15" name="aq15">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop115" name="ao115">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop215" name="ao215">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop315" name="ao315">
-    </div>
-</div>
-    <!--Teste questão 16-->
-<div class="row">
-    <div class="col">
-        <label for="ques16">Questão 16</label>
-        <input type="text" class="form-control" id="aques16" name="aq16">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop116" name="ao116">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop216" name="ao216">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop316" name="ao316">
-    </div>
-</div>
-    <!--Teste questão 17-->
-<div class="row">
-    <div class="col">
-        <label for="ques17">Questão 17</label>
-        <input type="text" class="form-control" id="aques17" name="aq17">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop117" name="ao117">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop217" name="ao217">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop317" name="ao317">
-    </div>
-</div>
-    <!--Teste questão 18-->
-<div class="row">
-    <div class="col">
-        <label for="ques18">Questão 18</label>
-        <input type="text" class="form-control" id="aques18" name="aq8">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop118" name="ao118">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop218" name="ao218">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop318" name="ao318">
-    </div>
-</div>
-    <!--Teste questão 19-->
-<div class="row">
-    <div class="col">
-        <label for="ques19">Questão 19</label>
-        <input type="text" class="form-control" id="aques19" name="aq19">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop119" name="ao119">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop219" name="ao219">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop319" name="ao319">
-    </div>
-</div>
-    <!--Teste questão 20-->
-<div class="row">
-    <div class="col">
-        <label for="ques20">Questão 20</label>
-        <input type="text" class="form-control" id="aques20" name="aq20">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 1</label>
-        <input type="text" class="form-control" id="aop120" name="ao120">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 2</label>
-        <input type="text" class="form-control" id="aop220" name="ao220">
-    </div>
-    <div class="col">
-        <label for="res1">Opção 3</label>
-        <input type="text" class="form-control" id="aop320" name="ao320">
-    </div>
-</div>
-</form>
-@endsection
+<!-- Deletar -->
 <form method="POST" action="">
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content" style="margin-top: 200px;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="excluir">Excluir</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  <h2 class="lead text-center" style="font-size: 15pt; font-weight: bold;">Tem certerza que deseja excluir?</h2>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger btn-md" class="btn btn-success">Sim</button>
-                      <button style="color: white;" class="btn btn-warning btn-md" class="btn btn-success">Não</button>
-                    </div>
-                </div>
-              </div>
-          </div>
-        </div>
+    @component('admin.administrator.modal')
+        @slot('title', 'Excluir')
+        @slot('type', 'delete')
+            <h2 class="lead text-center" style="font-size: 15pt; font-weight: bold;">Tem certerza que deseja excluir?</h2>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger btn-md" class="btn btn-success">Sim</button>
+                <button style="color: white;" class="btn btn-warning btn-md" class="btn btn-success">Não</button>
+            </div>   
+    @endcomponent
       </form>
+
+  <!-- Alterar -->
+  @component('admin.administrator.modal')
+    @slot('title', 'Alterar')
+    @slot('type', 'change')
+    <form action="#" method="POST">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" id="aname" name="anome">
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="desc">Descrição</label>
+            <input type="text" class="form-control" id="adesc" name="ades">
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="row">
+        <div class="col">
+            <label for="ques1">Questão 1</label>
+            <input type="text" class="form-control" id="aques1" name="aq1">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop1" name="ao1">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop2" name="ao2">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop3" name="ao3">
+        </div>
+    </div>
+        <!--Teste questão 2-->
+    <div class="row">
+        <div class="col">
+            <label for="ques2">Questão 2</label>
+            <input type="text" class="form-control" id="aques2" name="aq2">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop12" name="ao12">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop22" name="ao22">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop32" name="ao32">
+        </div>
+    </div>
+
+        <!--Teste questão 3-->
+    <div class="row">
+        <div class="col">
+            <label for="ques3">Questão 3</label>
+            <input type="text" class="form-control" id="aques3" name="aq3">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop13" name="ao13">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop23" name="ao23">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop33" name="ao33">
+        </div>
+    </div>
+        <!--Teste questão 4-->
+    <div class="row">
+        <div class="col">
+            <label for="ques4">Questão 4</label>
+            <input type="text" class="form-control" id="aques4" name="aq4">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop14" name="ao14">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop24" name="ao24">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop34" name="ao34">
+        </div>
+    </div>
+        <!--Teste questão 5-->
+    <div class="row">
+        <div class="col">
+            <label for="ques5">Questão 5</label>
+            <input type="text" class="form-control" id="aques5" name="aq5">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop15" name="ao15">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop25" name="ao25">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop35" name="ao35">
+        </div>
+    </div>
+        <!--Teste questão 6-->
+    <div class="row">
+        <div class="col">
+            <label for="ques6">Questão 6</label>
+            <input type="text" class="form-control" id="aques6" name="aq6">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop16" name="ao16">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop26" name="ao26">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop36" name="ao36">
+        </div>
+    </div>
+        <!--Teste questão 7-->
+    <div class="row">
+        <div class="col">
+            <label for="ques7">Questão 7</label>
+            <input type="text" class="form-control" id="aques7" name="aq7">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop17" name="ao17">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop27" name="ao27">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop37" name="ao37">
+        </div>
+    </div>
+        <!--Teste questão 8-->
+    <div class="row">
+        <div class="col">
+            <label for="ques8">Questão 8</label>
+            <input type="text" class="form-control" id="aques8" name="aq8">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop18" name="ao18">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop28" name="ao28">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop38" name="ao38">
+        </div>
+    </div>
+        <!--Teste questão 9-->
+    <div class="row">
+        <div class="col">
+            <label for="ques9">Questão 9</label>
+            <input type="text" class="form-control" id="aques9" name="aq9">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop19" name="ao19">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop29" name="ao29">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop39" name="ao39">
+        </div>
+    </div>
+        <!--Teste questão 10-->
+    <div class="row">
+        <div class="col">
+            <label for="ques10">Questão 10</label>
+            <input type="text" class="form-control" id="aques10" name="aq10">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop110" name="ao110">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop210" name="ao210">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop310" name="ao310">
+        </div>
+    </div>
+        <!--Teste questão 11-->
+    <div class="row">
+        <div class="col">
+            <label for="ques11">Questão 11</label>
+            <input type="text" class="form-control" id="aques11" name="aq11">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop111" name="ao111">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop211" name="ao211">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop311" name="ao311">
+        </div>
+    </div>
+        <!--Teste questão 12-->
+    <div class="row">
+        <div class="col">
+            <label for="ques12">Questão 12</label>
+            <input type="text" class="form-control" id="aques12" name="aq12">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop112" name="ao112">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop212" name="ao212">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop312" name="ao312">
+        </div>
+    </div>
+        <!--Teste questão 13-->
+    <div class="row">
+        <div class="col">
+            <label for="ques13">Questão 13</label>
+            <input type="text" class="form-control" id="aques13" name="aq13">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop113" name="ao113">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop213" name="ao213">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop313" name="ao313">
+        </div>
+    </div>
+        <!--Teste questão 14-->
+    <div class="row">
+        <div class="col">
+            <label for="ques14">Questão 14</label>
+            <input type="text" class="form-control" id="aques14" name="aq14">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop114" name="ao114">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop214" name="ao214">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop314" name="ao314">
+        </div>
+    </div>
+        <!--Teste questão 15-->
+    <div class="row">
+        <div class="col">
+            <label for="ques15">Questão 15</label>
+            <input type="text" class="form-control" id="aques15" name="aq15">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop115" name="ao115">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop215" name="ao215">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop315" name="ao315">
+        </div>
+    </div>
+        <!--Teste questão 16-->
+    <div class="row">
+        <div class="col">
+            <label for="ques16">Questão 16</label>
+            <input type="text" class="form-control" id="aques16" name="aq16">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop116" name="ao116">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop216" name="ao216">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop316" name="ao316">
+        </div>
+    </div>
+        <!--Teste questão 17-->
+    <div class="row">
+        <div class="col">
+            <label for="ques17">Questão 17</label>
+            <input type="text" class="form-control" id="aques17" name="aq17">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop117" name="ao117">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop217" name="ao217">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop317" name="ao317">
+        </div>
+    </div>
+        <!--Teste questão 18-->
+    <div class="row">
+        <div class="col">
+            <label for="ques18">Questão 18</label>
+            <input type="text" class="form-control" id="aques18" name="aq8">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop118" name="ao118">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop218" name="ao218">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop318" name="ao318">
+        </div>
+    </div>
+        <!--Teste questão 19-->
+    <div class="row">
+        <div class="col">
+            <label for="ques19">Questão 19</label>
+            <input type="text" class="form-control" id="aques19" name="aq19">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop119" name="ao119">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop219" name="ao219">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop319" name="ao319">
+        </div>
+    </div>
+        <!--Teste questão 20-->
+    <div class="row">
+        <div class="col">
+            <label for="ques20">Questão 20</label>
+            <input type="text" class="form-control" id="aques20" name="aq20">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 1</label>
+            <input type="text" class="form-control" id="aop120" name="ao120">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 2</label>
+            <input type="text" class="form-control" id="aop220" name="ao220">
+        </div>
+        <div class="col">
+            <label for="res1">Opção 3</label>
+            <input type="text" class="form-control" id="aop320" name="ao320">
+        </div>
+    </div>
+    </form>
+@endcomponent
 @endsection
