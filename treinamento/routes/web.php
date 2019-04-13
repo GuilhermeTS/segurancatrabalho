@@ -1,25 +1,24 @@
 <?php
 
+
+//Painel de adminstração
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/home', function () {
+Route::get('/painel', function () {
     return view('admin.home');
 });
-Route::get('/funcionario', function () {
+Route::get('/painel/funcionario', function () {
     return view('admin.addemployee');
 });
-Route::get('/desempenho_funcionario', function () {
+Route::get('/painel/desempenho', function () {
     return view('admin.employeedevelopment');
 });
-Route::get('/treinamento', function () {
+Route::get('/painel/treinamento', function () {
     return view('admin.addtraining');
 });
-Route::get('/teste', function () {
+Route::get('/painel/teste', function () {
     return view('admin.addtest');
-});
-Route::get('/home', function () {
-    return view('admin.home');
 });
 
 Route::get('/funcionario/home', function () {
