@@ -9,7 +9,7 @@ Route::get('/', function () {
 Route::post('/login', 'Auth\LoginController@login');
 
 //Painel de adminstração
-Route::get('/painel', 'Administrator@home');
+Route::get('/painel', 'Administrator@painel');
 Route::get('/painel/funcionario', 'Administrator@addFuncionario');
 Route::get('/painel/desempenho', 'Administrator@desempFuncionario');
 Route::get('/painel/treinamento', 'Administrator@addTreinamento');
