@@ -4,7 +4,7 @@
         <a class="nav-link text-white" href="/painel">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="/paine/funcionario">Cadastro de funcionário</a>
+        <a class="nav-link text-white" href="/painel/funcionario">Cadastro de funcionário</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-white" href="/painel/desempenho">Desempenho do funcionário</a>

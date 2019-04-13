@@ -1,15 +1,28 @@
 <?php
-
 //Rota raiz
 Route::get('/', function () {
     return view('auth.login');
-});
+})->middleware('guest');
 
 //Login
 Route::post('/login', 'Auth\LoginController@login');
 
+Route::get('/login', function(){
+    return view('auth.login');
+})->name('login');
+
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+//Registro
+Route::get('/register', function(){
+    return view('auth.register');
+})->name('register');
+
+Route::post('/register', 'Auth\RegisterController@register');
+
+
 //Painel de adminstração
-Route::get('/painel', 'Administrator@home');
+Route::get('/painel', 'Administrator@painel');
 Route::get('/painel/funcionario', 'Administrator@addFuncionario');
 Route::get('/painel/desempenho', 'Administrator@desempFuncionario');
 Route::get('/painel/treinamento', 'Administrator@addTreinamento');
