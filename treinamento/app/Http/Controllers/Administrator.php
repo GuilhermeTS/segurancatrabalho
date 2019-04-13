@@ -8,7 +8,7 @@ class Administrator extends Controller
 {    
     public function __construct()
     {
-        //$this->middleware('sessao');
+        $this->middleware('sessao');
     }   
 
     public function painel(){
