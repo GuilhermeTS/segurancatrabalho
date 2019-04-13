@@ -17,6 +17,10 @@ Route::get('/register', function(){
     return view('auth.register');
 })->name('register');
 
+Route::post('/register', 'Auth\RegisterController@register');
+
+
+
 //Painel de adminstração
 Route::get('/painel', 'Administrator@painel');
 Route::get('/painel/funcionario', 'Administrator@addFuncionario');
