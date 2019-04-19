@@ -30,10 +30,11 @@
   @endcomponent
 
 
-  <!-- Cadastrar -->
+  <!-- Visualizar -->
   @component('admin.administrator.modal')
-    @slot('title', 'Cadastrar')
-    @slot('type', 'register')
+    @slot('title', 'Visualizar')
+    @slot('type', 'visualization')
+    
   <form action="#" method="POST">
     <div class="form-group">
       <label for="nome">Nome completo</label>
@@ -122,9 +123,8 @@
         </div>
       </div>
     </div>
-  </form>
+  </form> 
   @endcomponent
-
 
   <!-- Excluir -->
   <form method="POST" action="">
@@ -138,7 +138,6 @@
           </div> 
     @endcomponent
   </form>
-
 
   <!-- Alterar -->
   @component('admin.administrator.modal')
@@ -284,15 +283,18 @@
             <input type="text" id="tlogradouro" class="form-control" name="log">
           </div>
         </div><br><br>
-  </form><br><br>
+        <div class="modal-footer">
+        <button class="btn btn-danger">Cancelar</button>
+          <button class="btn btn-success">Salvar</button>
+        </div>
+  </form>
   @endcomponent
 
-  <!-- Visualizar -->
+  <!-- Cadastrar -->
   @component('admin.administrator.modal')
-    @slot('title', 'Visualizar')
-    @slot('type', 'visualization')
+    @slot('title', 'Cadastrar')
+    @slot('type', 'register')
     <form action="#" method="POST">
-      
       <div class="form-group">
         <label for="nome">Nome completo</label>
         <input type="text" id="nome" class="form-control" name="nom">
@@ -438,7 +440,12 @@
             <label for="tlogradouro">Logradouro</label>
           <input type="text" id="tlogradouro" class="form-control" name="log">
         </div>
-      </form> 
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger">Cancelar</button>
+          <button class="btn btn-success">Salvar</button>
+        </div>
+    </form>
   @endcomponent
 
 @endsection
