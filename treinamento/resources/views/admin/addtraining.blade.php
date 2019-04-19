@@ -94,6 +94,10 @@
                 <input type="text" class="form-control" id="li10" name="l10">
               </div>
                               </div><br>
+              <div class="modal-footer">
+                <button class="btn btn-danger">Cancelar</button>
+                <button class="btn btn-success">Salvar</button>
+              </div>
       </form>
     @endcomponent
 
@@ -193,6 +197,11 @@
         <label for="li10">Link 10</label>        			
         <input type="text" class="form-control" id="li10" name="l10">
       </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger">Cancelar</button>
+          <button class="btn btn-success">Salvar</button>
+        </div>
     </form>
     @endcomponent
 
