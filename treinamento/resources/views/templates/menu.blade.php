@@ -9,7 +9,10 @@
           <span class="dropdown-toggle text-light">Bem vindo, {{ Auth::user()->name }}</span>
         </a>
         <div class="dropdown-menu">
-          <a href="#" class="dropdown-item dropdown-link">Sair</a>
+		<form action="/logout" method="POST">
+		@csrf
+		<button class="dropdown-item dropdown-link" type="submit">Sair</button>
+		</form>
         </div>
       </div>
     </div>
