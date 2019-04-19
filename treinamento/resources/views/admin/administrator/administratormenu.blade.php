@@ -14,7 +14,4 @@
     <li class="nav-item">
         <a class="nav-link text-white" href="/painel/teste">Adcionar testes</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-white" href="#">Sair</a>
-    </li>
 @endcomponent
