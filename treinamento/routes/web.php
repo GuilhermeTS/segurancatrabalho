@@ -12,7 +12,7 @@ Route::get('/login', function(){
 })->name('login');
 
 //Logout de administração
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Registro
 Route::get('/register', function(){
