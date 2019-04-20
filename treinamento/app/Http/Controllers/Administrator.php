@@ -24,12 +24,10 @@ class Administrator extends Controller
     //Injeta o request criado para cadastro de funcionários
     public function employeeRegister(EmployeeRegister $request)
     {
-        //Envia para o request
-        $validacao = $request->validated();
+        //Envia para o request de validação
+        $request->validated();
 
-        if ($validacao->fails()) {
-            return view('admin.addemployee');
-        }
+        return view('admin.addemployee');
     }
 
     public function desempFuncionario(){
