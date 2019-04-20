@@ -26,9 +26,9 @@ class EmployeeRegister extends FormRequest
         return [
             'nom'      => 'bail|required|max:200',
             'dn'        => 'bail|required|date',
-            'cpf'       => 'bail|required|min:11|max:11|numeric',
-            'rg'        => 'bail|required|min:10|max:10',
-            'matricula' => 'bail|required|',
+            'cpf'       => 'bail|required|cpf|numeric',
+            'rg'        => 'bail|required|numeric',
+            'matricula' => 'bail|required|numeric',
             'mail'      => 'bail|required|email',
             'senha'     => 'bail|required',
             'cargo'     => 'bail|required|string',
@@ -53,7 +53,8 @@ class EmployeeRegister extends FormRequest
             'required' => 'Preenchimento obrigatório',
             'email'    => 'E-mail inválido',
             'min'      => 'Tamanho mínimo permitido :min',
-            'numeric'  => 'Apenas números são permitidos'
+            'numeric'  => 'Apenas números são permitidos',
+            'max'      => 'Tamanho máximo permitido :max'
 
         ];
 
