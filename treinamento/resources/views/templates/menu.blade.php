@@ -9,7 +9,7 @@
           <span class="dropdown-toggle text-light">Bem vindo, {{ Auth::user()->name }}</span>
         </a>
         <div class="dropdown-menu">
-		<form action="/logout" method="POST">
+		<form action="{{ route('logout') }}" method="POST">
 		@csrf
 		<button class="dropdown-item dropdown-link" type="submit">Sair</button>
 		</form>
