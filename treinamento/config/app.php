@@ -165,7 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        //Validação extra 
+        geekcom\ValidatorDocs\ValidatorProvider::class,
         /*
          * Application Service Providers...
          */

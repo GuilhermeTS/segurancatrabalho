@@ -2,6 +2,8 @@
 
 namespace treinamento\Http\Controllers;
 
+use treinamento\Http\Requests\EmployeeRegister;
+
 use Illuminate\Http\Request;
 
 class Administrator extends Controller
@@ -16,6 +18,15 @@ class Administrator extends Controller
     }
 
     public function addFuncionario(){
+        return view('admin.addemployee');
+    }
+    
+    //Injeta o request criado para cadastro de funcionários
+    public function employeeRegister(EmployeeRegister $request)
+    {
+        //Envia para o request de validação
+        $request->validated();
+
         return view('admin.addemployee');
     }
 

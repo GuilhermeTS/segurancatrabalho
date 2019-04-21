@@ -25,6 +25,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 //Painel de adminstração
 Route::get('/painel', 'Administrator@painel');
 Route::get('/painel/funcionario', 'Administrator@addFuncionario');
+Route::post('/painel/addfuncionario', 'Administrator@employeeRegister');
 Route::get('/painel/desempenho', 'Administrator@desempFuncionario');
 Route::get('/painel/treinamento', 'Administrator@addTreinamento');
 Route::get('/painel/teste', 'Administrator@addTeste');

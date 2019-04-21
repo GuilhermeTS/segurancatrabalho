@@ -3,6 +3,10 @@
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('css/menu.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
 @endsection
 
 @section('title', 'Funcionário')
@@ -294,10 +298,12 @@
   @component('admin.administrator.modal')
     @slot('title', 'Cadastrar')
     @slot('type', 'register')
-    <form action="#" method="POST">
+    <form action="/painel/addfuncionario" method="POST" id="userForm">
+      @csrf
       <div class="form-group">
         <label for="nome">Nome completo</label>
         <input type="text" id="nome" class="form-control" name="nom">
+        <div style="color: red;">{{$errors->first('nom')}}</div>
       </div><br>
       
       <div class="row">
@@ -441,11 +447,23 @@
           <input type="text" id="tlogradouro" class="form-control" name="log">
         </div>
       </div>
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+        <div class="text-danger"></div>
       <div class="modal-footer">
         <button class="btn btn-danger">Cancelar</button>
-          <button class="btn btn-success">Salvar</button>
+        <button class="btn btn-success">Salvar</button>
         </div>
     </form>
+
+    <script src="{{ asset('js/app.js')}}"></script>
   @endcomponent
 
 @endsection
